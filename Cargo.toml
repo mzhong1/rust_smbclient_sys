@@ -1,0 +1,25 @@
+[package]
+name = "smbclient-sys"
+version = "0.1.0"
+authors = ["Mahmut Bulut <vertexclique@gmail.com>"]
+description = "FFI bindings to libsmbclient"
+license = "MIT"
+homepage = "https://github.com/vertexclique/smbclient-sys"
+documentation = "https://vertexclique.github.io/smbclient-sys/"
+repository = "https://github.com/vertexclique/smbclient-sys"
+readme = "README.md"
+keywords = ["samba", "smb", "cifs", "smbclient", "netbios"]
+
+build = "build.rs"
+links = "smbclient"
+
+[build-dependencies]
+bindgen = "0.42.2"
+
+[lib]
+name = "smbclient_sys"
+path = "src/lib.rs"
+
+[dependencies]
+libc = "0.2.43"
+nix = "0.11"
