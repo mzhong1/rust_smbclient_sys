@@ -14,7 +14,7 @@ build = "build.rs"
 links = "smbclient"
 
 [build-dependencies]
-bindgen = "0.42.2"
+bindgen = "^0.43"
 
 [lib]
 name = "smbclient_sys"
