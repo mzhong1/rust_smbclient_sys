@@ -1,19 +1,21 @@
-extern crate smbclient_sys as smbc;
 extern crate libc;
+extern crate smbclient_sys as smbc;
 
+use libc::{c_char, c_int, c_void, size_t, strncpy, O_CREAT, O_TRUNC, O_WRONLY};
+use std::ffi::CString;
 use std::mem;
-use std::ffi::{CString};
-use libc::{c_char, c_int, c_void, size_t, strncpy, O_WRONLY, O_CREAT, O_TRUNC};
 
-extern "C" fn auth_data(srv: *const c_char,
-            shr: *const c_char,
-            wg: *mut c_char,
-            wglen: c_int,
-            un: *mut c_char,
-            unlen: c_int,
-            pw: *mut c_char,
-            pwlen: c_int) {
-                unsafe {
+extern "C" fn auth_data(
+    srv: *const c_char,
+    shr: *const c_char,
+    wg: *mut c_char,
+    wglen: c_int,
+    un: *mut c_char,
+    unlen: c_int,
+    pw: *mut c_char,
+    pwlen: c_int,
+) {
+    unsafe {
         strncpy(un, CString::new("vertexclique").unwrap().as_ptr(), 12);
         strncpy(pw, CString::new("1234").unwrap().as_ptr(), 4);
     }
@@ -38,7 +40,11 @@ fn main() {
             let casted_ptr: *mut c_void = mem::transmute(the_cyberpunk_anime);
 
             // Write it through
-            let writeval: i64 = smbc::smbc_write(retval, casted_ptr, the_cyberpunk_anime.len() as size_t);
+            let writeval: isize = smbc::smbc_write(
+                retval,
+                casted_ptr as *mut _,
+                the_cyberpunk_anime.len() as size_t,
+            );
             if writeval > 0 {
                 println!("Write successful...");
             } else {

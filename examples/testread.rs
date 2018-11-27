@@ -1,19 +1,21 @@
-extern crate smbclient_sys as smbc;
 extern crate libc;
+extern crate smbclient_sys as smbc;
 
-use std::str;
-use std::ffi::{CStr, CString};
 use libc::{c_char, c_int, strncpy, O_RDONLY};
+use std::ffi::{CStr, CString};
+use std::str;
 
-extern "C" fn auth_data(srv: *const c_char,
-            shr: *const c_char,
-            wg: *mut c_char,
-            wglen: c_int,
-            un: *mut c_char,
-            unlen: c_int,
-            pw: *mut c_char,
-            pwlen: c_int) {
-                unsafe {
+extern "C" fn auth_data(
+    srv: *const c_char,
+    shr: *const c_char,
+    wg: *mut c_char,
+    wglen: c_int,
+    un: *mut c_char,
+    unlen: c_int,
+    pw: *mut c_char,
+    pwlen: c_int,
+) {
+    unsafe {
         strncpy(un, CString::new("vertexclique").unwrap().as_ptr(), 12);
         strncpy(pw, CString::new("1234").unwrap().as_ptr(), 4);
     }
@@ -38,7 +40,7 @@ fn main() {
             println!("Accessed to specified SMB file");
 
             // Read file to buffer
-            let read_val: i64 = smbc::smbc_read(retval, file_contents.as_mut_ptr(), dstlen);
+            let read_val: isize = smbc::smbc_read(retval, file_contents.as_mut_ptr(), dstlen);
             if read_val > 0 {
                 // File successfully read, print contents to stdout
 
