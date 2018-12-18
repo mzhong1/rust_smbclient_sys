@@ -6,14 +6,14 @@ use std::ffi::{CStr, CString};
 use std::str;
 
 extern "C" fn auth_data(
-    srv: *const c_char,
-    shr: *const c_char,
-    wg: *mut c_char,
-    wglen: c_int,
+    _srv: *const c_char,
+    _shr: *const c_char,
+    _wg: *mut c_char,
+    _wglen: c_int,
     un: *mut c_char,
-    unlen: c_int,
+    _unlen: c_int,
     pw: *mut c_char,
-    pwlen: c_int,
+    _pwlen: c_int,
 ) {
     unsafe {
         strncpy(un, CString::new("vertexclique").unwrap().as_ptr(), 12);
