@@ -4,7 +4,6 @@ version = "0.1.0"
 authors = ["Mahmut Bulut <vertexclique@gmail.com>"]
 description = "FFI bindings to libsmbclient"
 license = "MIT"
-edition = "2018"
 homepage = "https://github.com/vertexclique/smbclient-sys"
 documentation = "https://vertexclique.github.io/smbclient-sys/"
 repository = "https://github.com/vertexclique/smbclient-sys"
@@ -13,6 +12,7 @@ keywords = ["samba", "smb", "cifs", "smbclient", "netbios"]
 
 build = "build.rs"
 links = "smbclient"
+edition = "2018"
 
 [build-dependencies]
 bindgen = "^0.43"
@@ -20,6 +20,7 @@ bindgen = "^0.43"
 [lib]
 name = "smbclient_sys"
 path = "src/lib.rs"
+
 
 [dependencies]
 libc = "0.2.43"
