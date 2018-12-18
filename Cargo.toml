@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Mahmut Bulut <vertexclique@gmail.com>"]
 description = "FFI bindings to libsmbclient"
 license = "MIT"
+edition = '2018'
 homepage = "https://github.com/vertexclique/smbclient-sys"
 documentation = "https://vertexclique.github.io/smbclient-sys/"
 repository = "https://github.com/vertexclique/smbclient-sys"
