@@ -24,7 +24,8 @@ fn main() {
         }
     };
     */
-    println!("cargo:rustc-link-lib=smbclient");
+    //println!("cargo:rustc-link-lib=smbclient");
+    println!("cargo:rustc-flags=-L /usr/local/samba -l smbclient");
     let bindings = bindgen::Builder::default()
         .header("wrapper.h")
         .generate()
