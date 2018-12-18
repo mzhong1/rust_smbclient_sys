@@ -12,6 +12,7 @@ keywords = ["samba", "smb", "cifs", "smbclient", "netbios"]
 
 build = "build.rs"
 links = "smbclient"
+edition = '2018'
 
 [build-dependencies]
 bindgen = "^0.43"
