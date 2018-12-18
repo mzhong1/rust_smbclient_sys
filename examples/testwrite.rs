@@ -21,14 +21,14 @@ extern "C" fn auth_data(
     }
 }
 
-pub static mut authCallback: smbc::smbc_get_auth_data_fn = Some(auth_data);
+pub static mut AUTH_CALLBACK: smbc::smbc_get_auth_data_fn = Some(auth_data);
 
 fn main() {
     println!("Launch...");
     unsafe {
         let fname = CString::new("smb://air5650-nas/rechner/cyberpunk.txt").unwrap();
 
-        smbc::smbc_init(authCallback, 0);
+        smbc::smbc_init(AUTH_CALLBACK, 0);
         let retval: i32 = smbc::smbc_open(fname.as_ptr(), O_CREAT | O_TRUNC | O_WRONLY, 0);
         if retval < 0 {
             println!("Couldn't accessed to a SMB file");
