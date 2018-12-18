@@ -1,5 +1,5 @@
-extern crate libc;
-extern crate smbclient_sys as smbc;
+
+use smbclient_sys as smbc;
 
 use libc::{c_char, c_int, strncpy, O_RDONLY};
 use std::ffi::{CStr, CString};
