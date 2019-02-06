@@ -4,5 +4,5 @@
 #include <stdint.h>
 #include <fcntl.h>
 #include <utime.h>
-#include "../local/samba/include/libsmbclient.h"
+#include "libsmbclient.h"
 #include <linux/xattr.h>
