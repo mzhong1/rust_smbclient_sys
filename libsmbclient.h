@@ -1881,8 +1881,8 @@ int smbc_utime(const char *fname, struct utimbuf *utbuf);
  *                  one of the following forms:
  *
  *                     system.nt_sec_desc.<attribute name>
- *                     system.nt_sec_desc.*
- *                     system.nt_sec_desc.*+
+ *                     system.nt_sec_desc.'*'
+ *                     system.nt_sec_desc."*+"
  *
  *                  where <attribute name> is one of:
  *
@@ -1926,9 +1926,9 @@ int smbc_utime(const char *fname, struct utimbuf *utbuf);
  *                  strange behaviour.
  *
  *                  The owner and group specify the owner and group sids for
- *                  the object. If the attribute name (either '*+' with a
- *                  complete security descriptor, or individual 'owner+' or
- *                  'group+' attribute names) ended with a plus sign, the
+ *                  the object. If the attribute name (either "*+" with a
+ *                  complete security descriptor, or individual "'owner'" or
+ *                  "'group+'" attribute names) ended with a plus sign, the
  *                  specified name is resolved to a SID value, using the
  *                  server on which the file or directory resides.  Otherwise,
  *                  the value should be provided in SID-printable format as
@@ -1992,7 +1992,7 @@ int smbc_setxattr(const char *url,
  *
  *                     system.nt_sec_desc.<attribute name>
  *                     system.nt_sec_desc.*
- *                     system.nt_sec_desc.*+
+ *                     system.nt_sec_desc."*+"
  *
  *                  where <attribute name> is one of:
  *
@@ -2005,7 +2005,7 @@ int smbc_setxattr(const char *url,
  *                     acl+:<name or sid>
  *
  *                  In the forms "system.nt_sec_desc.*" and
- *                  "system.nt_sec_desc.*+", the asterisk and plus signs are
+ *                  "system.nt_sec_desc."*+"", the asterisk and plus signs are
  *                  literal, i.e. the string is provided exactly as shown, and
  *                  the value parameter should contain a complete security
  *                  descriptor with name:value pairs separated by tabs,
@@ -2036,9 +2036,9 @@ int smbc_setxattr(const char *url,
  *                  strange behaviour.
  *
  *                  The owner and group specify the owner and group sids for
- *                  the object. If the attribute name (either '*+' with a
- *                  complete security descriptor, or individual 'owner+' or
- *                  'group+' attribute names) ended with a plus sign, the
+ *                  the object. If the attribute name (either "*+" with a
+ *                  complete security descriptor, or individual "'owner'" or
+ *                  "'group+'" attribute names) ended with a plus sign, the
  *                  specified name is resolved to a SID value, using the
  *                  server on which the file or directory resides.  Otherwise,
  *                  the value should be provided in SID-printable format as
@@ -2099,7 +2099,7 @@ int smbc_lsetxattr(const char *url,
  *
  *                     system.nt_sec_desc.<attribute name>
  *                     system.nt_sec_desc.*
- *                     system.nt_sec_desc.*+
+ *                     system.nt_sec_desc."*+"
  *
  *                  where <attribute name> is one of:
  *
@@ -2112,7 +2112,7 @@ int smbc_lsetxattr(const char *url,
  *                     acl+:<name or sid>
  *
  *                  In the forms "system.nt_sec_desc.*" and
- *                  "system.nt_sec_desc.*+", the asterisk and plus signs are
+ *                  "system.nt_sec_desc."*+"", the asterisk and plus signs are
  *                  literal, i.e. the string is provided exactly as shown, and
  *                  the value parameter should contain a complete security
  *                  descriptor with name:value pairs separated by tabs,
@@ -2143,9 +2143,9 @@ int smbc_lsetxattr(const char *url,
  *                  strange behaviour.
  *
  *                  The owner and group specify the owner and group sids for
- *                  the object. If the attribute name (either '*+' with a
- *                  complete security descriptor, or individual 'owner+' or
- *                  'group+' attribute names) ended with a plus sign, the
+ *                  the object. If the attribute name (either "*+" with a
+ *                  complete security descriptor, or individual "'owner'" or
+ *                  "'group+'" attribute names) ended with a plus sign, the
  *                  specified name is resolved to a SID value, using the
  *                  server on which the file or directory resides.  Otherwise,
  *                  the value should be provided in SID-printable format as
@@ -2204,7 +2204,7 @@ int smbc_fsetxattr(int fd,
  *
  *                     system.nt_sec_desc.<attribute name>
  *                     system.nt_sec_desc.*
- *                     system.nt_sec_desc.*+
+ *                     system.nt_sec_desc."*+"
  *
  *                  where <attribute name> is one of:
  *
@@ -2217,7 +2217,7 @@ int smbc_fsetxattr(int fd,
  *                     acl+:<name or sid>
  *
  *                  In the forms "system.nt_sec_desc.*" and
- *                  "system.nt_sec_desc.*+", the asterisk and plus signs are
+ *                  "system.nt_sec_desc."*+"", the asterisk and plus signs are
  *                  literal, i.e. the string is provided exactly as shown, and
  *                  the value parameter will return a complete security
  *                  descriptor with name:value pairs separated by tabs,
@@ -2269,7 +2269,7 @@ int smbc_getxattr(const char *url,
  *
  *                     system.nt_sec_desc.<attribute name>
  *                     system.nt_sec_desc.*
- *                     system.nt_sec_desc.*+
+ *                     system.nt_sec_desc."*+"
  *
  *                  where <attribute name> is one of:
  *
@@ -2282,7 +2282,7 @@ int smbc_getxattr(const char *url,
  *                     acl+:<name or sid>
  *
  *                  In the forms "system.nt_sec_desc.*" and
- *                  "system.nt_sec_desc.*+", the asterisk and plus signs are
+ *                  "system.nt_sec_desc."*+"", the asterisk and plus signs are
  *                  literal, i.e. the string is provided exactly as shown, and
  *                  the value parameter will return a complete security
  *                  descriptor with name:value pairs separated by tabs,
@@ -2332,7 +2332,7 @@ int smbc_lgetxattr(const char *url,
  *
  *                     system.nt_sec_desc.<attribute name>
  *                     system.nt_sec_desc.*
- *                     system.nt_sec_desc.*+
+ *                     system.nt_sec_desc."*+"
  *
  *                  where <attribute name> is one of:
  *
@@ -2345,7 +2345,7 @@ int smbc_lgetxattr(const char *url,
  *                     acl+:<name or sid>
  *
  *                  In the forms "system.nt_sec_desc.*" and
- *                  "system.nt_sec_desc.*+", the asterisk and plus signs are
+ *                  "system.nt_sec_desc."*+"", the asterisk and plus signs are
  *                  literal, i.e. the string is provided exactly as shown, and
  *                  the value parameter will return a complete security
  *                  descriptor with name:value pairs separated by tabs,
@@ -2395,7 +2395,7 @@ int smbc_fgetxattr(int fd,
  *
  *                     system.nt_sec_desc.<attribute name>
  *                     system.nt_sec_desc.*
- *                     system.nt_sec_desc.*+
+ *                     system.nt_sec_desc."*+"
  *
  *                  where <attribute name> is one of:
  *
@@ -2408,7 +2408,7 @@ int smbc_fgetxattr(int fd,
  *                     acl+:<name or sid>
  *
  *                  In the forms "system.nt_sec_desc.*" and
- *                  "system.nt_sec_desc.*+", the asterisk and plus signs are
+ *                  "system.nt_sec_desc."*+"", the asterisk and plus signs are
  *                  literal, i.e. the string is provided exactly as shown, and
  *                  the value parameter will return a complete security
  *                  descriptor with name:value pairs separated by tabs,
@@ -2445,7 +2445,7 @@ int smbc_removexattr(const char *url,
  *
  *                     system.nt_sec_desc.<attribute name>
  *                     system.nt_sec_desc.*
- *                     system.nt_sec_desc.*+
+ *                     system.nt_sec_desc."*+"
  *
  *                  where <attribute name> is one of:
  *
@@ -2458,7 +2458,7 @@ int smbc_removexattr(const char *url,
  *                     acl+:<name or sid>
  *
  *                  In the forms "system.nt_sec_desc.*" and
- *                  "system.nt_sec_desc.*+", the asterisk and plus signs are
+ *                  "system.nt_sec_desc."*+"", the asterisk and plus signs are
  *                  literal, i.e. the string is provided exactly as shown, and
  *                  the value parameter will return a complete security
  *                  descriptor with name:value pairs separated by tabs,
@@ -2493,7 +2493,7 @@ int smbc_lremovexattr(const char *url,
  *
  *                     system.nt_sec_desc.<attribute name>
  *                     system.nt_sec_desc.*
- *                     system.nt_sec_desc.*+
+ *                     system.nt_sec_desc."*+"
  *
  *                  where <attribute name> is one of:
  *
@@ -2506,7 +2506,7 @@ int smbc_lremovexattr(const char *url,
  *                     acl+:<name or sid>
  *
  *                  In the forms "system.nt_sec_desc.*" and
- *                  "system.nt_sec_desc.*+", the asterisk and plus signs are
+ *                  "system.nt_sec_desc."*+"", the asterisk and plus signs are
  *                  literal, i.e. the string is provided exactly as shown, and
  *                  the value parameter will return a complete security
  *                  descriptor with name:value pairs separated by tabs,
