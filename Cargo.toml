@@ -1,12 +1,9 @@
 [package]
 name = "smbclient-sys"
 version = "0.1.0"
-authors = ["Mahmut Bulut <vertexclique@gmail.com>"]
+authors = ["Michelle Zhong <mzhong215@cable.comcast.com>"]
 description = "FFI bindings to libsmbclient"
 license = "MIT"
-homepage = "https://github.com/vertexclique/smbclient-sys"
-documentation = "https://vertexclique.github.io/smbclient-sys/"
-repository = "https://github.com/vertexclique/smbclient-sys"
 readme = "README.md"
 keywords = ["samba", "smb", "cifs", "smbclient", "netbios"]
 edition = "2018"
