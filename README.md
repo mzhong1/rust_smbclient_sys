@@ -1,5 +1,4 @@
 # smbclient-sys
-=====================
 FFI wrapper around libsmbclient which is the part of SAMBA implementation.
 
 ## Usage
