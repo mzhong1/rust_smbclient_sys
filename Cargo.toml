@@ -13,7 +13,7 @@ links = "smbclient"
 bindgen = "^0.47.1"
 
 [lib]
-name = "rust_smbclient_sys"
+name = "rust-smbclient-sys"
 path = "src/lib.rs"
 
 
