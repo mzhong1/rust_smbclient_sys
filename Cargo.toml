@@ -1,11 +1,10 @@
 [package]
-name = "smbclient-sys"
+name = "rust-smbclient-sys"
 version = "0.1.0"
 authors = ["Michelle Zhong <mzhong215@cable.comcast.com>"]
 description = "FFI bindings to libsmbclient"
 license = "MIT"
 readme = "README.md"
-keywords = ["samba", "smb", "cifs", "smbclient", "netbios"]
 edition = "2018"
 build = "build.rs"
 links = "smbclient"
@@ -14,7 +13,7 @@ links = "smbclient"
 bindgen = "^0.47.1"
 
 [lib]
-name = "smbclient_sys"
+name = "rust_smbclient_sys"
 path = "src/lib.rs"
 
 
