@@ -1,22 +1,21 @@
 [package]
 name = "rust-smbclient-sys"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["Michelle Zhong <mzhong215@cable.comcast.com>"]
 description = "FFI bindings to libsmbclient"
 license = "MIT"
 readme = "README.md"
-edition = "2018"
+edition = "2021"
 build = "build.rs"
 links = "smbclient"
 
 [build-dependencies]
-bindgen = "^0.47.1"
+bindgen = "0.68.1"
 
 [lib]
 name = "rust_smbclient_sys"
-path = "src/lib.rs"
-
+doctest = false
 
 [dependencies]
-libc = "0.2.43"
-nix = "0.11"
+libc = "0.2.149"
+nix = "0.27.1"
